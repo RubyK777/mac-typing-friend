@@ -1,75 +1,41 @@
-# mac-typing-cat
+# typing-partner-app-mac
+<img src="example.jpg" alt="Anaya Typing" width="110" height="130" style="vertical-align: middle;"> 
+A friend that types while you type. Idea comes from Bongo Cat.
 
-<img src="example.jpg" alt="use example" style="zoom: 50%;" />
+Mac overlay of the original application [bongocat-osu](https://github.com/kuroni/bongocat-osu) for Window/Linux.
 
-**NOTICE: This code has been reported by many to have compatibility issues. Use at your own risk.**
-
-A lovely cat that types for you. It's used as streaming overlay, with a borderless transparent background. You can also reskin it (and change the keys in `main.py`) to turn it into a mania-cat.
-
-works for **macOS only**. For Windows / Linux, check out [bongocat-osu](https://github.com/kuroni/bongocat-osu).
+# What's New
+1. Support different scaling from 1x to 3x
+2. Support keystroke count
 
 ## Prerequisites
-
+To set up the environment, run the following commands:
 ```bash
-python3 -m pip install pyobjc-framework-ApplicationServices pyobjc-framework-CoreText
+conda create -n typingpartner python=3.8
+conda activate typingpartner
+pip install PyQt5 pyobjc
 ```
 
-## Usage
-
+## Start the Application
+To start the application, run:
 ```bash
-python3 main.py
+python test.py
 ```
 
-If the program successfully launches but doesn't respond to global keypressed, retry with:
+## Quit the Application
+To quit the application, press `cmd+q` or click the `x` at the top of the floating window.
 
-```bash
-sudo python3 main.py
-```
-
-If the program quits with
-
-```plain
-ERROR: Unable to create event tap.
-```
-
-You need to allow `Terminal` to control your computer by going to `System Preferences.app > Security & Privacy > Privacy > Accessibility` and check on `Terminal`.
-
-Note that it's not floating on top of all windows automatically. You need to capture it separately in your streaming software (e.g. Window capture in OBS) and adjust its size / position.
-
-## Known bugs
-
-Image ghosting.
-
-works fine for images with identical outlines.
-
-## Some Bug Fixes.
-
-For Apple M1 devices, you may need to set the `nobg` var to false, you can then use a chroma key on softwares like OBS to remove the colour. 
-
-If your window is completly transparent or is not loading, Look for these lines of code and add # before the lines for the following:
-
-`root.overrideredirect(True)`
-
-`root.wm_attributes("-topmost", True)`
-
-It should look like this.
-
-```# Hide the root window drag bar and close button
-#root.overrideredirect(True)
-# Make the root window always on top
-#root.wm_attributes("-topmost", True)
-```
-
-If you do not have administrator access and your pip is replying with something related to: 
-Has No permission to Install to /Where/python3/is/installed/ then add the --user option to the end of the pip install packages module.
-it should look like this:
-
-```python3 -m pip install pyobjc-framework-ApplicationServices pyobjc-framework-CoreText --user```
+*Note: You may need to allow Terminal to control your computer by going to System Settings > Privacy & Security > Accessibility.*
 
 ## License
+The cat image is from bongo.cat by Eric Huber (@Externalizable). Art courtesy of @StrayRogue. Meme by @DitzyFlama.
 
-The cat image is from [bongo.cat](https://bongo.cat/) by Eric Huber (@Externalizable). Art courtesy of @StrayRogue. Meme by @DitzyFlama.
+Thanks to the work done in [mac-typing-bongo-cat](https://github.com/111116/mac-typing-bongo-cat) and [mac-typing-cat](https://github.com/meiru-cam/mac-typing-cat).
 
-Codes copied from other websites or projects (see comment in code) may have their own license.
 
-Other parts are released into public domain.
+## Special Thanks To
+- GPT-4o & Sora for generating typing gif 
+- Claude-3.5-sonnet for bug-fixing
+
+Feel free to reach out with any questions or suggestions!
+
